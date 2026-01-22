@@ -1,5 +1,6 @@
 # app.py
 from flask import Flask, render_template
+from markupsafe import escape
 
 # Create a Flask app
 app = Flask(__name__)
@@ -14,9 +15,10 @@ def hello_world():
 def about():
     return '<h1>We are united!</h1>'
 
-@app.route("/greet/<username>")
-def greet(username):
-    return render_template("greet.html", name=username)
+@app.route("/hello/<name>")
+def hello(name):
+    return '<p>Hello, {}!</p>'.format(escape(name))
+
 
 
 # Run the app
