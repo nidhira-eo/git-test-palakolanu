@@ -19,7 +19,8 @@ def about():
 def hello(name):
     return '<p>Hello, {}!</p>'.format(escape(name))
 
-
+for rule in app.url_map.iter_rules():
+    print(rule)
 
 # Run the app
 if __name__ == '__main__':
